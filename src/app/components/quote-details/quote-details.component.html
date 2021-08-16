@@ -1,0 +1,16 @@
+<div>
+    <div *ngIf="currentQuote.text" class="edit-form">
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" id="text" [(ngModel)]="currentQuote.text" name="text" />
+            </div>
+        </form>
+        <button class="badge badge-danger mr-2" (click)="deleteQuote()">
+      Delete
+    </button>
+        <button type="submit" class="badge badge-success mb-2" (click)="updateQuote()">
+      Update
+    </button>
+        <p>{{ message }}</p>
+    </div>
+</div>

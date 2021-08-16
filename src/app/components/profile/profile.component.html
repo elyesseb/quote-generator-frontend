@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="jumbotron">
+        <h3>
+            <strong>{{ currentUser }}</strong> Profile
+        </h3>
+    </div>
+</div>
+<div class="col-md-12">
+    <h4>Quotes List</h4>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let quote of quotes">
+            {{ quote.text }}
+            <a class="badge badge-warning" routerLink="/quotes/{{ quote.id }}">
+              Edit
+            </a>
+        </li>
+    </ul>
+</div>
