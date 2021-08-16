@@ -26,7 +26,7 @@ export class QuoteDetailsComponent implements OnInit {
   }
 
   getQuote(id: string): void {
-    this.quoteService.get(id)
+    this.quoteService.getById(id)
       .subscribe(
         data => {
           this.currentQuote = data;
@@ -44,7 +44,7 @@ export class QuoteDetailsComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-          this.message = response.message ? response.message : 'This tutorial was updated successfully!';
+          this.message = response.message ? response.message : 'This quote was updated successfully!';
         },
         error => {
           console.log(error);
@@ -56,11 +56,10 @@ export class QuoteDetailsComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-          this.router.navigate(['/profile']);
+          this.router.navigate(['/quotes']);
         },
         error => {
           console.log(error);
         });
   }
-
 }

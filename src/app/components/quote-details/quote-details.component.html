@@ -1,16 +1,27 @@
 <div>
-    <div *ngIf="currentQuote.text" class="edit-form">
+    <div *ngIf="currentQuote.id" class="edit-form">
+
         <form>
+
             <div class="form-group">
+                <label for="description">Text</label>
                 <input type="text" class="form-control" id="text" [(ngModel)]="currentQuote.text" name="text" />
             </div>
+
         </form>
+
         <button class="badge badge-danger mr-2" (click)="deleteQuote()">
       Delete
     </button>
+
         <button type="submit" class="badge badge-success mb-2" (click)="updateQuote()">
       Update
     </button>
         <p>{{ message }}</p>
+    </div>
+
+    <div *ngIf="!currentQuote.id">
+        <br />
+        <p>Cannot access this Quote...</p>
     </div>
 </div>

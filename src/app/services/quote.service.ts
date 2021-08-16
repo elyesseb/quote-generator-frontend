@@ -20,6 +20,10 @@ export class QuoteService {
     return this.http.get(`${baseUrl}/users/${username}`);
   }
 
+  getById(id: any): Observable<Quote> {
+    return this.http.get(`${baseUrl}/quotes/${id}`);
+  }
+
   create(username: any, data: any): Observable<any> {
     return this.http.post(`${baseUrl}/quotes/${username}`, data);
   }
