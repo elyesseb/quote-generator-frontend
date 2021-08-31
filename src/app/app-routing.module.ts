@@ -6,15 +6,17 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { QuoteDetailsComponent } from './components/quote-details/quote-details.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate : [AuthGuard] , children : [
   { path: 'add', component: AddQuoteComponent },
   { path: 'quotes/:id', component: QuoteDetailsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
+]}
 ];
 
 @NgModule({
